@@ -4,14 +4,14 @@
       "id": "gallery-001",
       "title": "Luna después del baño",
       "description": "Baño Spa completo — Pomeranian reluciente",
-      "src": "https://images.unsplash.com/photo-1517849845532-4e2574dfc9d4?w=600&q=80",
+      "src": "https://images.unsplash.com/photo-1568572933382-74d440642117?w=600&q=80",
       "featured": true
     },
     {
       "id": "gallery-002",
       "title": "Max con su nuevo corte",
       "description": "Corte completo — Poodle con estilo",
-      "src": "https://images.unsplash.com/photo-1610632380986-63fe3942e8d6?w=600&q=80",
+      "src": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&q=80",
       "featured": true
     },
     {
@@ -32,7 +32,7 @@
       "id": "gallery-005",
       "title": "Nala consentida",
       "description": "Spa completo + perfume — Corgi radiante",
-      "src": "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=600&q=80",
+      "src": "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&q=80",
       "featured": false
     },
     {
