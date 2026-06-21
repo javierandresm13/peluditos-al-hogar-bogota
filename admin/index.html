@@ -6,6 +6,20 @@
   <title>Panel Admin · Pets Love Bogotá</title>
   <link rel="stylesheet" href="admin.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+  <style>
+    .save-status { display: none; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 500; align-items: center; gap: 8px; transition: all 0.3s; }
+    .save-status.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: flex; }
+    .save-status.warning { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; display: flex; }
+    .save-status.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: flex; }
+    .save-status.info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; display: flex; }
+    
+    .publish-section { background: #fef9f4; border-radius: 12px; padding: 25px; margin-bottom: 20px; border-left: 4px solid var(--admin-primary); }
+    .publish-section h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .publish-section ol { margin-left: 20px; line-height: 1.8; color: var(--admin-text-light); font-size: 0.9rem; }
+    .publish-section code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+    .publish-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--admin-primary); color: white; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; border: none; transition: all 0.3s; margin-top: 15px; }
+    .publish-btn:hover { background: #d47845; transform: translateY(-2px); }
+  </style>
 </head>
 <body>
   <!-- LOGIN -->
@@ -58,6 +72,7 @@
           <button class="btn-admin btn-admin-sm btn-admin-outline" onclick="saveAllData()" style="margin-left:10px">💾 Guardar todo</button>
         </div>
       </div>
+      <div id="save-status" class="save-status" style="display:none;padding:10px 16px;border-radius:8px;margin-bottom:20px;font-size:0.9rem;font-weight:500;align-items:center;gap:8px;"></div>
 
       <!-- DASHBOARD -->
       <div id="section-dashboard" class="admin-section active">
@@ -246,31 +261,42 @@
       <!-- PUBLISH -->
       <div id="section-publish" class="admin-section">
         <div class="editor-card">
-          <h2>🚀 Publicar cambios en GitHub Pages</h2>
-          <div style="background:#fef9f4;border-radius:8px;padding:20px;margin-bottom:20px;border-left:4px solid var(--admin-primary);">
-            <p style="font-weight:600;margin-bottom:8px;">📋 Instrucciones paso a paso:</p>
-            <ol style="margin-left:20px;line-height:1.8;color:var(--admin-text-light);font-size:0.9rem;">
-              <li>Haz clic en <strong>"Descargar datos actualizados"</strong> para obtener los archivos JSON modificados.</li>
-              <li>Ve a tu repositorio en <strong>github.com/javierandresm13/peluditos-al-hogar-bogota</strong></li>
-              <li>Sube los archivos descargados a la carpeta <code>/data/</code> del repositorio.</li>
-              <li>GitHub Pages publica automáticamente los cambios en unos minutos.</li>
+          <h2>🚀 Publicar cambios en la página web</h2>
+          
+          <div class="publish-section">
+            <h3>📋 ¿Cómo hacer que los cambios se vean en la página?</h3>
+            <p style="font-size:0.9rem;color:var(--admin-text-light);margin-bottom:15px;">
+              El administrador guarda los cambios en tu navegador. Para publicarlos en internet sigue estos pasos:
+            </p>
+            <ol>
+              <li><strong>Paso 1:</strong> Haz clic en <strong>"📥 Descargar datos"</strong> (abajo)</li>
+              <li><strong>Paso 2:</strong> Ve a <a href="https://github.com/javierandresm13/peluditos-al-hogar-bogota" target="_blank" style="color:var(--admin-primary);">github.com/javierandresm13/peluditos-al-hogar-bogota</a></li>
+              <li><strong>Paso 3:</strong> Dentro del repo, entra a la carpeta <code>data/</code></li>
+              <li><strong>Paso 4:</strong> Arrastra los archivos descargados a la carpeta <code>data/</code> y haz clic en <strong>"Commit changes"</strong></li>
+              <li><strong>Paso 5:</strong> Espera 1-2 minutos y los cambios se verán en la página 🌐</li>
             </ol>
           </div>
+          
           <div style="background:#e8f8f0;border-radius:8px;padding:20px;margin-bottom:20px;border-left:4px solid var(--admin-success);">
-            <p style="font-weight:600;margin-bottom:8px;">💡 Alternativa: Subir imágenes gratis</p>
-            <p style="font-size:0.9rem;color:var(--admin-text-light);">Para las fotos de la galería y productos, usa servicios gratuitos como:
-              <a href="https://imgbb.com" target="_blank" style="color:var(--admin-primary);">ImgBB</a>,
-              <a href="https://postimages.org" target="_blank" style="color:var(--admin-primary);">PostImage</a> o
-              <a href="https://imgur.com" target="_blank" style="color:var(--admin-primary);">Imgur</a>.
-              Luego pega la URL de la imagen en el editor de galería o productos.
+            <p style="font-weight:600;margin-bottom:8px;">💡 ¿Cómo agregar fotos nuevas?</p>
+            <p style="font-size:0.9rem;color:var(--admin-text-light);">
+              Las fotos no se guardan en el admin. Para poner fotos de tus mascotas:
             </p>
+            <ol style="margin:10px 0 0 20px;font-size:0.85rem;color:var(--admin-text-light);">
+              <li>Sube la foto a <a href="https://imgbb.com" target="_blank" style="color:var(--admin-primary);">ImgBB.com</a> (gratis, sin registro)</li>
+              <li>Copia el enlace que te dan (ej: <code>https://i.ibb.co/xyz123/foto.jpg</code>)</li>
+              <li>Pega ese enlace en el campo "URL de imagen" en la galería o productos</li>
+              <li>Descarga los datos y síbelos a GitHub (pasos de arriba)</li>
+            </ol>
           </div>
-          <div class="btn-group">
-            <button class="btn-admin btn-admin-primary" onclick="downloadAllData()">📥 Descargar datos actualizados</button>
-            <button class="btn-admin btn-admin-outline" onclick="previewChanges()">👁️ Vista previa de cambios</button>
+          
+          <div class="btn-group" style="flex-direction:column;align-items:stretch;">
+            <button class="publish-btn" onclick="downloadAllData()">📥 PASO 1: Descargar datos actualizados</button>
+            <a href="https://github.com/javierandresm13/peluditos-al-hogar-bogota/tree/main/data" target="_blank" class="btn-admin btn-admin-outline" style="text-align:center;justify-content:center;">📂 PASO 2: Ir al repo en GitHub</a>
           </div>
+          
           <div id="json-preview-area" style="display:none;margin-top:20px;">
-            <h3 style="margin-bottom:10px;">📄 Vista previa JSON</h3>
+            <h3 style="margin-bottom:10px;">📄 Vista previa de los datos a publicar</h3>
             <div id="json-preview-content" class="json-preview"></div>
           </div>
         </div>

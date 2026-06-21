@@ -10,6 +10,33 @@ const STORAGE_KEY = "petslove_admin_data";
 let appData = null;
 let editingItemId = null;
 
+// ===== UNSAVED CHANGES TRACKER =====
+let hasUnsavedChanges = false;
+
+function markUnsaved() {
+  hasUnsavedChanges = true;
+  updateSaveStatus();
+}
+
+function markSaved() {
+  hasUnsavedChanges = false;
+  updateSaveStatus();
+}
+
+function updateSaveStatus() {
+  const el = document.getElementById('save-status');
+  if (!el) return;
+  if (hasUnsavedChanges) {
+    el.innerHTML = '⚠️ Tienes cambios sin publicar';
+    el.className = 'save-status warning';
+    el.style.display = 'flex';
+  } else {
+    el.innerHTML = '✅ Todos los cambios guardados localmente';
+    el.className = 'save-status success';
+    el.style.display = 'flex';
+  }
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   // Check if already logged in
@@ -534,6 +561,7 @@ function saveContact() {
 function saveAllData() {
   if (!appData) return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+  markSaved();
   renderDashboard();
 }
 
@@ -590,6 +618,15 @@ function showToast(message, type = 'info') {
   toast.className = 'toast ' + type;
   toast.innerHTML = message;
   container.appendChild(toast);
+  
+  // Also update status bar
+  const statusEl = document.getElementById('save-status');
+  if (statusEl) {
+    const icons = {success: '✅', error: '❌', info: 'ℹ️'};
+    statusEl.innerHTML = icons[type] + ' ' + message;
+    statusEl.className = 'save-status ' + type;
+    statusEl.style.display = 'flex';
+  }
   
   setTimeout(() => {
     toast.style.opacity = '0';
