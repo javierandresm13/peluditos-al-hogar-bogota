@@ -37,6 +37,164 @@ function updateSaveStatus() {
   }
 }
 
+
+// ===== GITHUB SYNC =====
+const GITHUB_OWNER = "javierandresm13";
+const GITHUB_REPO = "peluditos-al-hogar-bogota";
+const GITHUB_BRANCH = "main";
+
+function getGithubToken() {
+  return localStorage.getItem("petslove_github_token") || "";
+}
+
+function saveGithubToken(token) {
+  localStorage.setItem("petslove_github_token", token);
+}
+
+async function publishToGitHub() {
+  const token = getGithubToken();
+  if (!token || token.length < 10) {
+    showToast("❌ Primero conecta tu cuenta de GitHub en la sección de abajo", "error");
+    return;
+  }
+  
+  const btn = document.getElementById("publish-btn");
+  if (btn) { btn.disabled = true; btn.innerHTML = "⏳ Publicando..."; }
+  
+  try {
+    const files = {
+      "data/site.json": JSON.stringify(appData.site, null, 2),
+      "data/services.json": JSON.stringify(appData.services, null, 2),
+      "data/products.json": JSON.stringify(appData.products, null, 2),
+      "data/gallery.json": JSON.stringify(appData.gallery, null, 2),
+      "data/loyalty.json": JSON.stringify(appData.loyalty, null, 2)
+    };
+    
+    let successCount = 0;
+    let failCount = 0;
+    
+    for (const [path, content] of Object.entries(files)) {
+      try {
+        await updateGitHubFile(token, path, content);
+        successCount++;
+      } catch (e) {
+        console.error("Failed to publish", path, e);
+        failCount++;
+      }
+    }
+    
+    if (failCount === 0) {
+      showToast(`✅ Publicado! ${successCount} archivos actualizados en GitHub. La página se actualizará en 1-2 min.`, "success");
+      markSaved();
+    } else {
+      showToast(`⚠️ ${successCount} archivos publicados, ${failCount} fallaron. Revisa tu token.`, "error");
+    }
+  } catch (err) {
+    showToast("❌ Error al publicar: " + err.message, "error");
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = "🚀 Publicar ahora en GitHub"; }
+  }
+}
+
+async function updateGitHubFile(token, path, content) {
+  // First, try to get the existing file SHA
+  let sha = null;
+  const getUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}?ref=${GITHUB_BRANCH}`;
+  
+  try {
+    const getRes = await fetch(getUrl, {
+      headers: { "Authorization": `token ${token}`, "Accept": "application/vnd.github.v3+json" }
+    });
+    if (getRes.ok) {
+      const data = await getRes.json();
+      sha = data.sha;
+    }
+  } catch (e) {
+    // File doesn't exist yet, that's OK
+  }
+  
+  // Create or update the file
+  const putUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`;
+  const body = {
+    message: "📝 Actualización desde panel admin Pets Love",
+    content: btoa(unescape(encodeURIComponent(content))),
+    branch: GITHUB_BRANCH
+  };
+  if (sha) body.sha = sha;
+  
+  const putRes = await fetch(putUrl, {
+    method: "PUT",
+    headers: { 
+      "Authorization": `token ${token}`,
+      "Accept": "application/vnd.github.v3+json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+  
+  if (!putRes.ok) {
+    const errData = await putRes.json().catch(() => ({}));
+    throw new Error(`GitHub API error (${putRes.status}): ${errData.message || putRes.statusText}`);
+  }
+}
+
+async function testGithubToken(token) {
+  const res = await fetch("https://api.github.com/user", {
+    headers: { "Authorization": `token ${token}`, "Accept": "application/vnd.github.v3+json" }
+  });
+  if (!res.ok) throw new Error("Token inválido");
+  return await res.json();
+}
+
+function disconnectGithub() {
+  if (confirm("¿Desconectar GitHub del panel?")) {
+    localStorage.removeItem("petslove_github_token");
+    document.getElementById("github-status").innerHTML = "🔌 Desconectado";
+    document.getElementById("github-token").value = "";
+    showToast("✅ GitHub desconectado", "info");
+  }
+}
+
+// ==== PUBLISH SECTION RENDER ====
+function renderPublishSection() {
+  const token = getGithubToken();
+  const statusEl = document.getElementById("github-status");
+  const tokenEl = document.getElementById("github-token");
+  const saveBtn = document.getElementById("github-save-token");
+  const disconnectBtn = document.getElementById("github-disconnect");
+  const publishBtn = document.getElementById("publish-btn");
+  
+  if (statusEl) {
+    if (token) {
+      statusEl.innerHTML = "✅ Conectado a GitHub";
+      statusEl.className = "github-status connected";
+    } else {
+      statusEl.innerHTML = "🔌 No conectado";
+      statusEl.className = "github-status disconnected";
+    }
+  }
+  if (tokenEl) tokenEl.value = token;
+  if (saveBtn) saveBtn.style.display = token ? "none" : "inline-flex";
+  if (disconnectBtn) disconnectBtn.style.display = token ? "inline-flex" : "none";
+  if (publishBtn) publishBtn.style.display = token ? "inline-flex" : "none";
+}
+
+async function saveGithubTokenFromUI() {
+  const token = document.getElementById("github-token").value.trim();
+  if (!token) {
+    showToast("❌ Ingresa un token de GitHub", "error");
+    return;
+  }
+  try {
+    const user = await testGithubToken(token);
+    saveGithubToken(token);
+    showToast(`✅ Conectado como ${user.login}`, "success");
+    renderPublishSection();
+  } catch (e) {
+    showToast("❌ Token inválido o sin permisos. Crea uno con scope 'repo'", "error");
+  }
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   // Check if already logged in
@@ -223,6 +381,7 @@ function renderAllEditors() {
   renderGalleryEditor();
   renderLoyaltyEditor();
   renderContactEditor();
+  renderPublishSection();
 }
 
 // ===== HERO =====
