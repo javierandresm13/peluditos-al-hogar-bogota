@@ -1,0 +1,118 @@
+{
+  "categories": [
+    {
+      "id": "banos",
+      "name": "Baños y Spa",
+      "icon": "🛁",
+      "items": [
+        {
+          "id": "ban-basic",
+          "name": "Baño Básico",
+          "description": "Baño con shampoo hipoalergénico, secado y cepillado",
+          "price": "$35.000",
+          "image": "",
+          "featured": true
+        },
+        {
+          "id": "ban-spa",
+          "name": "Baño Spa",
+          "description": "Baño con shampoo premium, acondicionador, masaje relajante y perfume",
+          "price": "$55.000",
+          "image": "",
+          "featured": true
+        },
+        {
+          "id": "ban-medi",
+          "name": "Baño Medicado",
+          "description": "Baño con shampoo medicado para pieles sensibles o con alergias",
+          "price": "$45.000",
+          "image": "",
+          "featured": false
+        }
+      ]
+    },
+    {
+      "id": "cortes",
+      "name": "Cortes y Estilo",
+      "icon": "✂️",
+      "items": [
+        {
+          "id": "corte-basic",
+          "name": "Corte Higiénico",
+          "description": "Corte sanitario en patas, cara y zona genital",
+          "price": "$25.000",
+          "image": "",
+          "featured": false
+        },
+        {
+          "id": "corte-full",
+          "name": "Corte Completo",
+          "description": "Corte completo según raza y preferencia del dueño",
+          "price": "$50.000",
+          "image": "",
+          "featured": true
+        },
+        {
+          "id": "corte-raz",
+          "name": "Corte por Raza",
+          "description": "Corte especializado para razas específicas (Poodle, Schnauzer, etc.)",
+          "price": "$60.000",
+          "image": "",
+          "featured": true
+        }
+      ]
+    },
+    {
+      "id": "complementarios",
+      "name": "Servicios Complementarios",
+      "icon": "🐾",
+      "items": [
+        {
+          "id": "unas",
+          "name": "Corte de Uñas",
+          "description": "Corte y limado de uñas con precisión y cuidado",
+          "price": "$15.000",
+          "image": "",
+          "featured": false
+        },
+        {
+          "id": "limpieza",
+          "name": "Limpieza de Oídos",
+          "description": "Limpieza profunda de oídos con productos veterinarios",
+          "price": "$12.000",
+          "image": "",
+          "featured": false
+        },
+        {
+          "id": "cepillado",
+          "name": "Cepillado de Dientes",
+          "description": "Cepillado dental con pasta especial para mascotas",
+          "price": "$10.000",
+          "image": "",
+          "featured": false
+        }
+      ]
+    }
+  ],
+  "zones": [
+    "Chapinero",
+    "Usaquén",
+    "Suba",
+    "Engativá",
+    "Fontibón",
+    "Barrios Unidos",
+    "Teusaquillo",
+    "Kennedy",
+    "Bosa",
+    "Ciudad Bolívar",
+    "San Cristóbal",
+    "Rafael Uribe",
+    "Tunjuelito",
+    "Puente Aranda",
+    "Antonio Nariño",
+    "Los Mártires",
+    "Santa Fe",
+    "Candelaria"
+  ],
+  "notes": "El costo del servicio puede variar según la zona de Bogotá y el tamaño de la mascota. Contáctanos para cotizar tu dirección específica."
+}

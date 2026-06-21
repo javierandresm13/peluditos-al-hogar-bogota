@@ -1,0 +1,45 @@
+{
+  "plans": [
+    {
+      "id": "plan-bronze",
+      "name": "Plan Bronce",
+      "icon": "🥉",
+      "description": "¡Acumula puntos y obtén descuentos!",
+      "benefits": [
+        "Acumula 1 punto por cada $10.000 gastados",
+        "10% de descuento al acumular 10 puntos",
+        "Descuento en tu servicio favorito"
+      ],
+      "color": "#cd7f32"
+    },
+    {
+      "id": "plan-silver",
+      "name": "Plan Plata",
+      "icon": "🥈",
+      "description": "Para clientes frecuentes que aman consentir a su peludo",
+      "benefits": [
+        "15% de descuento en todos los servicios",
+        "Prioridad en agenda de citas",
+        "Baño Spa gratis cada 5 servicios",
+        "Descuento en productos de aseo"
+      ],
+      "color": "#a8a8a8"
+    },
+    {
+      "id": "plan-gold",
+      "name": "Plan Dorado",
+      "icon": "🥇",
+      "description": "El plan premium para los que miman a su mascota como se merece",
+      "benefits": [
+        "20% de descuento en todos los servicios",
+        "Prioridad máxima en agenda",
+        "Baño Spa gratis cada 3 servicios",
+        "15% de descuento en productos",
+        "Corte de uñas gratis ilimitado",
+        "Regalo sorpresa en el cumpleaños de tu mascota"
+      ],
+      "color": "#ffd700"
+    }
+  ],
+  "note": "Pregunta por nuestros planes al agendar tu primera visita. ¡Tener contento a tu peludo nunca fue tan fácil!"
+}

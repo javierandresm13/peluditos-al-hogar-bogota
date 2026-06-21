@@ -1,0 +1,38 @@
+{
+  "site": {
+    "name": "Pets Love",
+    "tagline": "Cuidamos y queremos a tu mascota 🐾",
+    "description": "Peluquería canina y mascotas a domicilio en Bogotá",
+    "domain": "https://javierandresm13.github.io/peluditos-al-hogar-bogota"
+  },
+  "hero": {
+    "title": "Consentimos a tu peludo 🐕",
+    "subtitle": "Peluquería canina profesional a domicilio en Bogotá",
+    "description": "Amor, cuidado y estilo para tu mejor amigo, sin salir de casa",
+    "cta_text": "Agenda tu visita",
+    "cta_link": "https://wa.me/573194282637"
+  },
+  "about": {
+    "title": "¿Por qué Pets Love?",
+    "subtitle": "Más que una peluquería, una experiencia de amor y cuidado",
+    "description": "En Pets Love entendemos que tu mascota es parte de la familia. Por eso llevamos hasta la puerta de tu hogar un servicio profesional, cariñoso y personalizado. Nos desplazamos a toda Bogotá con todos los implementos necesarios para que tu peludo reciba el mejor trato sin estrés ni traslados.",
+    "highlights": [
+      "🚐 Servicio a domicilio en toda Bogotá",
+      "❤️ Profesionales amantes de los animales",
+      "🛁 Productos hipoalergénicos de calidad",
+      "⭐ Más de 100 mascotas felices"
+    ]
+  },
+  "contact": {
+    "whatsapp": "573194282637",
+    "whatsapp_display": "319 428 2637",
+    "instagram": "",
+    "instagram_display": "@petslovebogota",
+    "email": "javierandresm13@hotmail.es",
+    "city": "Bogotá D.C., Colombia"
+  },
+  "footer": {
+    "copyright": "© 2025 Pets Love Bogotá. Todos los derechos reservados.",
+    "made_with": "Hecho con 💙 para los peludos de Bogotá"
+  }
+}

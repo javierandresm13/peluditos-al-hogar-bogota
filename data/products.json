@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Shampoo Hipoalergénico 250ml",
+      "description": "Shampoo suave para pieles sensibles, pH balanceado para perros y gatos",
+      "price": "$28.000",
+      "category": "shampoos",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "prod-002",
+      "name": "Acondicionador Reparador 250ml",
+      "description": "Acondicionador con keratina y vitaminas para pelo suave y brillante",
+      "price": "$32.000",
+      "category": "shampoos",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "prod-003",
+      "name": "Perfume Canino Fresh 120ml",
+      "description": "Perfume duradero con aroma fresco, libre de alcohol",
+      "price": "$22.000",
+      "category": "fragancias",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-004",
+      "name": "Cepillo Cerdas Suaves",
+      "description": "Cepillo ergonómico con cerdas suaves para cepillado diario",
+      "price": "$18.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "prod-005",
+      "name": "Peine Desenredante Profesional",
+      "description": "Peine de acero inoxidable con giro suave para nudos difíciles",
+      "price": "$25.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-006",
+      "name": "Cortauñas Profesional",
+      "description": "Cortauñas de acero inoxidable con seguro de seguridad",
+      "price": "$20.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-007",
+      "name": "Toalla Microfibra Secado Rápido",
+      "description": "Toalla absorbente de microfibra para secado rápido y cómodo",
+      "price": "$35.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-008",
+      "name": "Kit Viaje: Shampoo + Acondicionador",
+      "description": "Presentación económica de 100ml cada uno, ideal para viajes",
+      "price": "$38.000",
+      "category": "kits",
+      "image": "",
+      "featured": true
+    }
+  ],
+  "categories": [
+    {"id": "shampoos", "name": "Shampoos y Acondicionadores", "icon": "🧴"},
+    {"id": "fragancias", "name": "Fragancias", "icon": "🌸"},
+    {"id": "accesorios", "name": "Accesorios de Aseo", "icon": "🪥"},
+    {"id": "kits", "name": "Kits y Combos", "icon": "🎁"}
+  ]
+}

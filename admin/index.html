@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin · Pets Love Bogotá</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+  <!-- LOGIN -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <div class="login-icon">🐾</div>
+      <h1>Pets Love Admin</h1>
+      <p>Ingresa tu contraseña para administrar el sitio</p>
+      <input type="password" id="login-password" placeholder="Contraseña" autocomplete="off">
+      <button class="btn-admin btn-admin-primary" onclick="handleLogin()" style="width:100%;justify-content:center">Entrar</button>
+      <div id="login-error" class="login-error">Contraseña incorrecta. Intenta de nuevo.</div>
+      <a href="../index.html" style="display:inline-block;margin-top:20px;color:var(--admin-text-light);font-size:0.85rem;">← Volver al sitio</a>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="admin-panel" style="display:none">
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+      <div class="sidebar-brand">
+        <h2>🐾 Pets Love</h2>
+        <p>Panel de Administración</p>
+      </div>
+      <div class="sidebar-nav">
+        <a href="#" class="active" data-section="dashboard"><span class="nav-icon">📊</span> <span>Dashboard</span></a>
+        <a href="#" data-section="hero"><span class="nav-icon">🏠</span> <span>Hero / Inicio</span></a>
+        <a href="#" data-section="about"><span class="nav-icon">📖</span> <span>Nosotros</span></a>
+        <a href="#" data-section="services"><span class="nav-icon">🛁</span> <span>Servicios</span></a>
+        <a href="#" data-section="products"><span class="nav-icon">🧴</span> <span>Productos</span></a>
+        <a href="#" data-section="gallery"><span class="nav-icon">📸</span> <span>Galería</span></a>
+        <a href="#" data-section="loyalty"><span class="nav-icon">🎁</span> <span>Planes Fidelidad</span></a>
+        <a href="#" data-section="contact"><span class="nav-icon">📞</span> <span>Contacto</span></a>
+        <a href="#" data-section="publish"><span class="nav-icon">🚀</span> <span>Publicar</span></a>
+      </div>
+      <div class="sidebar-footer">
+        <a href="../index.html" target="_blank"><span>🌐</span> <span>Ver sitio web</span></a>
+        <a href="#" onclick="handleLogout()" style="margin-top:8px"><span>🚪</span> <span>Cerrar sesión</span></a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+
+      <!-- TOPBAR -->
+      <div class="admin-topbar">
+        <h1 id="section-title">Dashboard</h1>
+        <div class="admin-status">
+          <span class="status-dot"></span>
+          <span>Auto-guardado activo</span>
+          <button class="btn-admin btn-admin-sm btn-admin-outline" onclick="saveAllData()" style="margin-left:10px">💾 Guardar todo</button>
+        </div>
+      </div>
+
+      <!-- DASHBOARD -->
+      <div id="section-dashboard" class="admin-section active">
+        <div class="dashboard-stats" id="dashboard-stats"></div>
+        <div class="dashboard-actions">
+          <button class="dash-action" onclick="navigateTo('hero')">
+            <div class="action-icon">🏠</div>
+            <div><h4>Editar Hero</h4><p>Títulos, subtítulos y llamado a la acción</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('about')">
+            <div class="action-icon">📖</div>
+            <div><h4>Editar Nosotros</h4><p>Texto descriptivo y destacados</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('services')">
+            <div class="action-icon">🛁</div>
+            <div><h4>Editar Servicios</h4><p>Categorías, precios y descripciones</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('products')">
+            <div class="action-icon">🧴</div>
+            <div><h4>Editar Productos</h4><p>Productos de aseo canino</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('gallery')">
+            <div class="action-icon">📸</div>
+            <div><h4>Editar Galería</h4><p>Fotos de mascotas felices</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('loyalty')">
+            <div class="action-icon">🎁</div>
+            <div><h4>Planes de Fidelidad</h4><p>Beneficios y recompensas</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('contact')">
+            <div class="action-icon">📞</div>
+            <div><h4>Contacto</h4><p>WhatsApp, Instagram y email</p></div>
+          </button>
+          <button class="dash-action" onclick="navigateTo('publish')">
+            <div class="action-icon">🚀</div>
+            <div><h4>Publicar cambios</h4><p>Subir cambios a GitHub Pages</p></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- HERO EDITOR -->
+      <div id="section-hero" class="admin-section">
+        <div class="editor-card">
+          <h2>🏠 Sección Hero (Inicio)</h2>
+          <div class="form-group">
+            <label>Título principal</label>
+            <input type="text" id="hero-title" placeholder="Ej: Consentimos a tu peludo 🐕">
+          </div>
+          <div class="form-group">
+            <label>Subtítulo</label>
+            <input type="text" id="hero-subtitle" placeholder="Ej: Peluquería canina profesional a domicilio en Bogotá">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea id="hero-description" placeholder="Ej: Amor, cuidado y estilo para tu mejor amigo..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Texto del botón CTA</label>
+              <input type="text" id="hero-cta-text" placeholder="Ej: Agenda tu visita">
+            </div>
+            <div class="form-group">
+              <label>Enlace del botón CTA <span class="hint">(WhatsApp)</span></label>
+              <input type="text" id="hero-cta-link" placeholder="https://wa.me/573194282637">
+            </div>
+          </div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-primary" onclick="saveHero()">💾 Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT EDITOR -->
+      <div id="section-about" class="admin-section">
+        <div class="editor-card">
+          <h2>📖 Sección Nosotros</h2>
+          <div class="form-group">
+            <label>Título</label>
+            <input type="text" id="about-title" placeholder="¿Por qué Pets Love?">
+          </div>
+          <div class="form-group">
+            <label>Subtítulo</label>
+            <input type="text" id="about-subtitle" placeholder="Más que una peluquería...">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea id="about-description" rows="6" placeholder="Descripción del negocio..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Destacados <span class="hint">(uno por línea)</span></label>
+            <textarea id="about-highlights" rows="4" placeholder="🚐 Servicio a domicilio..."></textarea>
+          </div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-primary" onclick="saveAbout()">💾 Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES EDITOR -->
+      <div id="section-services" class="admin-section">
+        <div class="editor-card">
+          <h2>🛁 Editar Servicios</h2>
+          <p style="color:var(--admin-text-light);margin-bottom:20px;font-size:0.9rem;">Los servicios se organizan por categorías. Puedes agregar, editar o eliminar servicios de cada categoría.</p>
+          <div id="services-editor"></div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-success" onclick="addServiceCategory()">➕ Agregar categoría</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCTS EDITOR -->
+      <div id="section-products" class="admin-section">
+        <div class="editor-card">
+          <h2>🧴 Editar Productos de Aseo Canino</h2>
+          <div id="products-editor"></div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-success" onclick="addProduct()">➕ Agregar producto</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALLERY EDITOR -->
+      <div id="section-gallery" class="admin-section">
+        <div class="editor-card">
+          <h2>📸 Editar Galería de Fotos</h2>
+          <p style="color:var(--admin-text-light);margin-bottom:20px;font-size:0.9rem;">Sube las fotos a un servicio gratuito (ImgBB, PostImage, etc.) y pega la URL aquí. Para mejores resultados usa imágenes cuadradas.</p>
+          <div id="gallery-editor"></div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-success" onclick="addGalleryItem()">➕ Agregar foto</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOYALTY EDITOR -->
+      <div id="section-loyalty" class="admin-section">
+        <div class="editor-card">
+          <h2>🎁 Editar Planes de Fidelidad</h2>
+          <div id="loyalty-editor"></div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-success" onclick="addLoyaltyPlan()">➕ Agregar plan</button>
+          </div>
+          <div class="form-group" style="margin-top:20px">
+            <label>Nota informativa</label>
+            <textarea id="loyalty-note" rows="2" placeholder="Nota sobre los planes..."></textarea>
+          </div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-primary" onclick="saveLoyaltyNote()">💾 Guardar nota</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT EDITOR -->
+      <div id="section-contact" class="admin-section">
+        <div class="editor-card">
+          <h2>📞 Editar Información de Contacto</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>WhatsApp <span class="hint">(número completo, ej: 573194282637)</span></label>
+              <input type="text" id="contact-whatsapp" placeholder="573194282637">
+            </div>
+            <div class="form-group">
+              <label>WhatsApp <span class="hint">(display)</span></label>
+              <input type="text" id="contact-whatsapp-display" placeholder="319 428 2637">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Instagram <span class="hint">(usuario sin @)</span></label>
+              <input type="text" id="contact-instagram" placeholder="petslovebogota">
+            </div>
+            <div class="form-group">
+              <label>Instagram <span class="hint">(display)</span></label>
+              <input type="text" id="contact-instagram-display" placeholder="@petslovebogota">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="contact-email" placeholder="javierandresm13@hotmail.es">
+          </div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-primary" onclick="saveContact()">💾 Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PUBLISH -->
+      <div id="section-publish" class="admin-section">
+        <div class="editor-card">
+          <h2>🚀 Publicar cambios en GitHub Pages</h2>
+          <div style="background:#fef9f4;border-radius:8px;padding:20px;margin-bottom:20px;border-left:4px solid var(--admin-primary);">
+            <p style="font-weight:600;margin-bottom:8px;">📋 Instrucciones paso a paso:</p>
+            <ol style="margin-left:20px;line-height:1.8;color:var(--admin-text-light);font-size:0.9rem;">
+              <li>Haz clic en <strong>"Descargar datos actualizados"</strong> para obtener los archivos JSON modificados.</li>
+              <li>Ve a tu repositorio en <strong>github.com/javierandresm13/peluditos-al-hogar-bogota</strong></li>
+              <li>Sube los archivos descargados a la carpeta <code>/data/</code> del repositorio.</li>
+              <li>GitHub Pages publica automáticamente los cambios en unos minutos.</li>
+            </ol>
+          </div>
+          <div style="background:#e8f8f0;border-radius:8px;padding:20px;margin-bottom:20px;border-left:4px solid var(--admin-success);">
+            <p style="font-weight:600;margin-bottom:8px;">💡 Alternativa: Subir imágenes gratis</p>
+            <p style="font-size:0.9rem;color:var(--admin-text-light);">Para las fotos de la galería y productos, usa servicios gratuitos como:
+              <a href="https://imgbb.com" target="_blank" style="color:var(--admin-primary);">ImgBB</a>,
+              <a href="https://postimages.org" target="_blank" style="color:var(--admin-primary);">PostImage</a> o
+              <a href="https://imgur.com" target="_blank" style="color:var(--admin-primary);">Imgur</a>.
+              Luego pega la URL de la imagen en el editor de galería o productos.
+            </p>
+          </div>
+          <div class="btn-group">
+            <button class="btn-admin btn-admin-primary" onclick="downloadAllData()">📥 Descargar datos actualizados</button>
+            <button class="btn-admin btn-admin-outline" onclick="previewChanges()">👁️ Vista previa de cambios</button>
+          </div>
+          <div id="json-preview-area" style="display:none;margin-top:20px;">
+            <h3 style="margin-bottom:10px;">📄 Vista previa JSON</h3>
+            <div id="json-preview-content" class="json-preview"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

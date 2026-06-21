@@ -1,0 +1,46 @@
+{
+  "photos": [
+    {
+      "id": "gallery-001",
+      "title": "Luna después del baño",
+      "description": "Baño Spa completo",
+      "src": "",
+      "featured": true
+    },
+    {
+      "id": "gallery-002",
+      "title": "Max con su nuevo corte",
+      "description": "Corte completo raza Poodle",
+      "src": "",
+      "featured": true
+    },
+    {
+      "id": "gallery-003",
+      "title": "Pelusa relajada",
+      "description": "Baño medicado + masaje",
+      "src": "",
+      "featured": true
+    },
+    {
+      "id": "gallery-004",
+      "title": "Rocky feliz",
+      "description": "Corte higiénico + uñas",
+      "src": "",
+      "featured": false
+    },
+    {
+      "id": "gallery-005",
+      "title": "Nala consentida",
+      "description": "Spa completo + perfume",
+      "src": "",
+      "featured": false
+    },
+    {
+      "id": "gallery-006",
+      "title": "Tobby renovado",
+      "description": "Corte por raza Schnauzer",
+      "src": "",
+      "featured": false
+    }
+  ]
+}
