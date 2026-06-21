@@ -102,14 +102,10 @@ function renderHero() {
   hero.querySelector('.hero-badge').innerHTML = `🐾 ${s.site.name} · ${s.site.tagline.split(' ').slice(0,3).join(' ')}`;
   
   // Set hero image
-  if (s.hero.image) {
-    const imgContainer = hero.querySelector('.hero-image-placeholder');
-    if (imgContainer) {
-      imgContainer.style.backgroundImage = `url('${s.hero.image}')`;
-      imgContainer.style.backgroundSize = 'cover';
-      imgContainer.style.backgroundPosition = 'center';
-      imgContainer.textContent = '';
-    }
+  const heroImg = document.getElementById('hero-img');
+  if (heroImg && s.hero.image) {
+    heroImg.src = s.hero.image;
+    heroImg.alt = 'Pets Love - Perro feliz y limpio';
   }
 }
 
@@ -126,14 +122,10 @@ function renderAbout() {
   list.innerHTML = s.about.highlights.map(h => `<li>${h}</li>`).join('');
   
   // Set about image
-  if (s.about.image) {
-    const imgContainer = about.querySelector('.about-image-placeholder');
-    if (imgContainer) {
-      imgContainer.style.backgroundImage = `url('${s.about.image}')`;
-      imgContainer.style.backgroundSize = 'cover';
-      imgContainer.style.backgroundPosition = 'center';
-      imgContainer.textContent = '';
-    }
+  const aboutImg = document.getElementById('about-img');
+  if (aboutImg && s.about.image) {
+    aboutImg.src = s.about.image;
+    aboutImg.alt = 'Pets Love - Cuidamos a tu mascota';
   }
 }
 
@@ -178,14 +170,16 @@ function renderProducts() {
   data.products.forEach((prod, idx) => {
     const catName = data.categories.find(c => c.id === prod.category)?.name || prod.category;
     const hasImg = prod.image ? true : false;
-    const imgStyle = prod.image 
-      ? `style="background-image: url('${prod.image}'); background-size: cover; background-position: center;"`
-      : '';
+
     
     html += `
       <div class="product-card${prod.featured ? ' featured' : ''}">
         ${prod.featured ? '<span class="product-badge">⭐ Recomendado</span>' : ''}
-        <div class="product-icon" ${imgStyle}>${!hasImg ? productIcons[idx % productIcons.length] : ''}</div>
+        <div class="product-icon">
+          ${hasImg 
+            ? `<img src="${prod.image}" alt="${prod.name}" style="width:100%;height:100%;object-fit:cover;border-radius:12px">`
+            : productIcons[idx % productIcons.length]}
+        </div>
         <span class="product-category">${catName}</span>
         <h4>${prod.name}</h4>
         <p>${prod.description}</p>
@@ -207,14 +201,14 @@ function renderGallery() {
   let html = '';
   data.photos.forEach((photo, idx) => {
     const imgSrc = photo.src ? photo.src : '';
-    const imgStyle = imgSrc 
-      ? `background-image: url('${imgSrc}'); background-size: cover; background-position: center;`
-      : '';
+
     const emoji = petEmojis[idx % petEmojis.length];
     
     html += `
-      <div class="gallery-item" style="${imgStyle}">
-        ${!imgSrc ? `<span class="placeholder-icon">${emoji}</span>` : ''}
+      <div class="gallery-item">
+        ${imgSrc 
+          ? `<img src="${imgSrc}" alt="${photo.title}" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">`
+          : `<span class="placeholder-icon">${emoji}</span>`}
         <div class="gallery-overlay">
           <h4>${photo.title}</h4>
           <p>${photo.description}</p>

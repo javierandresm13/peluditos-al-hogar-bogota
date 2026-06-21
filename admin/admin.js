@@ -59,7 +59,24 @@ function showAdmin() {
 
 // ===== DATA LOADING =====
 async function loadData() {
-  // Try localStorage first
+  // Try embedded data first (works with file:// protocol)
+  if (window.__EMBEDDED_DATA) {
+    try {
+      appData = {
+        site: JSON.parse(window.__EMBEDDED_DATA.site),
+        services: JSON.parse(window.__EMBEDDED_DATA.services),
+        products: JSON.parse(window.__EMBEDDED_DATA.products),
+        loyalty: JSON.parse(window.__EMBEDDED_DATA.loyalty),
+        gallery: JSON.parse(window.__EMBEDDED_DATA.gallery)
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+      renderDashboard();
+      renderAllEditors();
+      return;
+    } catch(e) { console.warn('Admin embedded data failed:', e); }
+  }
+  
+  // Try localStorage second
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     try {
@@ -70,7 +87,7 @@ async function loadData() {
     } catch(e) { /* ignore */ }
   }
   
-  // Load from files
+  // Load from files last
   try {
     const base = window.location.pathname.includes('/peluditos-al-hogar-bogota/admin/')
       ? '../' : '../';
