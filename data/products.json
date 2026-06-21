@@ -6,7 +6,7 @@
       "description": "Shampoo suave para pieles sensibles, pH balanceado para perros y gatos",
       "price": "$28.000",
       "category": "shampoos",
-      "image": "",
+      "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80",
       "featured": true
     },
     {
@@ -15,7 +15,7 @@
       "description": "Acondicionador con keratina y vitaminas para pelo suave y brillante",
       "price": "$32.000",
       "category": "shampoos",
-      "image": "",
+      "image": "https://images.pexels.com/photos/6915810/pexels-photo-6915810.jpeg?auto=compress&cs=tinysrgb&w=400&q=80",
       "featured": true
     },
     {
@@ -24,7 +24,7 @@
       "description": "Perfume duradero con aroma fresco, libre de alcohol",
       "price": "$22.000",
       "category": "fragancias",
-      "image": "",
+      "image": "https://images.pexels.com/photos/5122180/pexels-photo-5122180.jpeg?auto=compress&cs=tinysrgb&w=400&q=80",
       "featured": false
     },
     {
@@ -33,7 +33,7 @@
       "description": "Cepillo ergonómico con cerdas suaves para cepillado diario",
       "price": "$18.000",
       "category": "accesorios",
-      "image": "",
+      "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80",
       "featured": true
     },
     {
@@ -42,7 +42,7 @@
       "description": "Peine de acero inoxidable con giro suave para nudos difíciles",
       "price": "$25.000",
       "category": "accesorios",
-      "image": "",
+      "image": "https://images.pexels.com/photos/5122180/pexels-photo-5122180.jpeg?auto=compress&cs=tinysrgb&w=400&q=80",
       "featured": false
     },
     {
@@ -51,7 +51,7 @@
       "description": "Cortauñas de acero inoxidable con seguro de seguridad",
       "price": "$20.000",
       "category": "accesorios",
-      "image": "",
+      "image": "https://images.pexels.com/photos/5122180/pexels-photo-5122180.jpeg?auto=compress&cs=tinysrgb&w=400&q=80",
       "featured": false
     },
     {
@@ -60,7 +60,7 @@
       "description": "Toalla absorbente de microfibra para secado rápido y cómodo",
       "price": "$35.000",
       "category": "accesorios",
-      "image": "",
+      "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&q=80",
       "featured": false
     },
     {
@@ -69,14 +69,30 @@
       "description": "Presentación económica de 100ml cada uno, ideal para viajes",
       "price": "$38.000",
       "category": "kits",
-      "image": "",
+      "image": "https://images.pexels.com/photos/6915810/pexels-photo-6915810.jpeg?auto=compress&cs=tinysrgb&w=400&q=80",
       "featured": true
     }
   ],
   "categories": [
-    {"id": "shampoos", "name": "Shampoos y Acondicionadores", "icon": "🧴"},
-    {"id": "fragancias", "name": "Fragancias", "icon": "🌸"},
-    {"id": "accesorios", "name": "Accesorios de Aseo", "icon": "🪥"},
-    {"id": "kits", "name": "Kits y Combos", "icon": "🎁"}
+    {
+      "id": "shampoos",
+      "name": "Shampoos y Acondicionadores",
+      "icon": "🧴"
+    },
+    {
+      "id": "fragancias",
+      "name": "Fragancias",
+      "icon": "🌸"
+    },
+    {
+      "id": "accesorios",
+      "name": "Accesorios de Aseo",
+      "icon": "🪥"
+    },
+    {
+      "id": "kits",
+      "name": "Kits y Combos",
+      "icon": "🎁"
+    }
   ]
 }

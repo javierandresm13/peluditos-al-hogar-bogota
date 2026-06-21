@@ -100,6 +100,17 @@ function renderHero() {
   hero.querySelector('.hero-buttons .btn-primary').href = s.hero.cta_link;
   hero.querySelector('.hero-buttons .btn-primary').innerHTML = `💬 ${s.hero.cta_text}`;
   hero.querySelector('.hero-badge').innerHTML = `🐾 ${s.site.name} · ${s.site.tagline.split(' ').slice(0,3).join(' ')}`;
+  
+  // Set hero image
+  if (s.hero.image) {
+    const imgContainer = hero.querySelector('.hero-image-placeholder');
+    if (imgContainer) {
+      imgContainer.style.backgroundImage = `url('${s.hero.image}')`;
+      imgContainer.style.backgroundSize = 'cover';
+      imgContainer.style.backgroundPosition = 'center';
+      imgContainer.textContent = '';
+    }
+  }
 }
 
 function renderAbout() {
@@ -113,6 +124,17 @@ function renderAbout() {
   
   const list = about.querySelector('.about-highlights');
   list.innerHTML = s.about.highlights.map(h => `<li>${h}</li>`).join('');
+  
+  // Set about image
+  if (s.about.image) {
+    const imgContainer = about.querySelector('.about-image-placeholder');
+    if (imgContainer) {
+      imgContainer.style.backgroundImage = `url('${s.about.image}')`;
+      imgContainer.style.backgroundSize = 'cover';
+      imgContainer.style.backgroundPosition = 'center';
+      imgContainer.textContent = '';
+    }
+  }
 }
 
 function renderServices() {
@@ -155,10 +177,15 @@ function renderProducts() {
   let html = '';
   data.products.forEach((prod, idx) => {
     const catName = data.categories.find(c => c.id === prod.category)?.name || prod.category;
+    const hasImg = prod.image ? true : false;
+    const imgStyle = prod.image 
+      ? `style="background-image: url('${prod.image}'); background-size: cover; background-position: center;"`
+      : '';
+    
     html += `
       <div class="product-card${prod.featured ? ' featured' : ''}">
         ${prod.featured ? '<span class="product-badge">⭐ Recomendado</span>' : ''}
-        <div class="product-icon">${productIcons[idx % productIcons.length]}</div>
+        <div class="product-icon" ${imgStyle}>${!hasImg ? productIcons[idx % productIcons.length] : ''}</div>
         <span class="product-category">${catName}</span>
         <h4>${prod.name}</h4>
         <p>${prod.description}</p>
@@ -179,14 +206,15 @@ function renderGallery() {
   
   let html = '';
   data.photos.forEach((photo, idx) => {
-    const imgStyle = photo.src 
-      ? `background-image: url('${photo.src}'); background-size: cover; background-position: center;`
+    const imgSrc = photo.src ? photo.src : '';
+    const imgStyle = imgSrc 
+      ? `background-image: url('${imgSrc}'); background-size: cover; background-position: center;`
       : '';
     const emoji = petEmojis[idx % petEmojis.length];
     
     html += `
       <div class="gallery-item" style="${imgStyle}">
-        ${!photo.src ? `<span class="placeholder-icon">${emoji}</span>` : ''}
+        ${!imgSrc ? `<span class="placeholder-icon">${emoji}</span>` : ''}
         <div class="gallery-overlay">
           <h4>${photo.title}</h4>
           <p>${photo.description}</p>
