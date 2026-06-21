@@ -1,0 +1,111 @@
+🐾 GUIA RAPIDA PETS LOVE 🐾
+
+Dueño, aquí tienes todo para manejar tu página desde el celular o cualquier PC:
+
+🌐 LINK DE LA PAGINA (para clientes):
+https://javierandresm13.github.io/peluditos-al-hogar-bogota/
+
+🔧 LINK DEL ADMIN (para editar):
+https://javierandresm13.github.io/peluditos-al-hogar-bogota/admin/
+🔑 Contraseña: petslove2025
+
+================================
+🚀 PRIMERA VEZ (solo 1 vez)
+================================
+
+1. Abre el link del admin ↑
+2. Pon la contraseña: petslove2025
+3. En el menú izquierdo, toca "Publicar cambios"
+4. Toca "Conectar con GitHub"
+5. Se abrirán instrucciones. Ve a:
+   https://github.com/settings/tokens
+6. Inicia sesión (usuario: javierandresm13)
+7. Toca "Generate new token (classic)"
+8. Nombre: petslove-admin
+9. Marca SOLO "repo"
+10. Toca "Generate token"
+11. COPIA el token que aparece (solo se ve una vez)
+12. Pégalo en el admin y toca "Conectar"
+
+✅ LISTO. Ya puedes publicar.
+
+================================
+✏️ COMO EDITAR
+================================
+
+Menú izquierdo:
+
+🏠 HERO → Título, subtítulo, texto del botón
+📖 NOSOTROS → Descripción del negocio
+🛁 SERVICIOS → Agregar/quitar servicios y precios
+🧴 PRODUCTOS → Catálogo de productos de aseo
+📸 GALERIA → Fotos de mascotas atendidas
+🎁 PLANES → Beneficios de fidelidad
+📞 CONTACTO → WhatsApp, Instagram
+
+================================
+🚀 COMO PUBLICAR CAMBIOS
+================================
+
+1. Edita todo lo que quieras
+2. Ve a "Publicar cambios" (menú izquierdo)
+3. Toca "🚀 Publicar ahora en GitHub"
+4. Espera el mensaje ✅
+5. Espera 1-2 minutos
+6. Abre la página web para ver los cambios
+
+================================
+🖼️ COMO SUBIR FOTOS
+================================
+
+Las fotos se suben a ImgBB (gratis):
+
+1. Ve a https://imgbb.com
+2. Toca "Start Upload"
+3. Elige la foto
+4. Copia el "Direct link"
+5. Pégalo en el admin (galería o productos)
+6. Publica los cambios
+
+================================
+❓ DUDAS FRECUENTES
+================================
+
+❓ ¿Puedo editar desde el celular?
+✅ Sí, el admin funciona en cualquier navegador
+
+❓ ¿Qué pasa si cierro sin publicar?
+Los cambios se guardan solos, pero no se ven en la web hasta que toques "Publicar"
+
+❓ ¿Cada cuánto toca reconectar?
+NUNCA, el token sirve para siempre
+
+❓ ¿Puedo tenerlo en celular y PC?
+✅ Sí, solo pega el token una vez en cada dispositivo
+
+❓ ¿Los cambios se ven al instante?
+Tardan 1-2 minutos en aparecer en la página
+
+================================
+📱 LINKS RAPIDOS
+================================
+
+🌐 Pagina web:
+https://javierandresm13.github.io/peluditos-al-hogar-bogota/
+
+🔧 Admin:
+https://javierandresm13.github.io/peluditos-al-hogar-bogota/admin/
+🔑 petslove2025
+
+📸 Subir fotos:
+https://imgbb.com
+
+🐙 Token GitHub:
+https://github.com/settings/tokens
+
+================================
+💬 WhatsApp: 319 428 2637
+📧 Email: javierandresm13@hotmail.es
+
+¡Cualquier duda me escribes!
+🐾✨
