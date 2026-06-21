@@ -13,6 +13,24 @@ let appData = {
 
 // Load all data
 async function loadData() {
+  // Try embedded data first (works with file:// protocol)
+  if (window.__EMBEDDED_DATA) {
+    try {
+      appData = {
+        site: JSON.parse(window.__EMBEDDED_DATA.site),
+        services: JSON.parse(window.__EMBEDDED_DATA.services),
+        products: JSON.parse(window.__EMBEDDED_DATA.products),
+        loyalty: JSON.parse(window.__EMBEDDED_DATA.loyalty),
+        gallery: JSON.parse(window.__EMBEDDED_DATA.gallery)
+      };
+      renderSite();
+      return;
+    } catch (err) {
+      console.warn('Embedded data failed, trying fetch:', err);
+    }
+  }
+  
+  // Fallback: fetch from server (works on GitHub Pages)
   try {
     const [site, services, products, loyalty, gallery] = await Promise.all([
       fetch('./data/site.json').then(r => r.json()),
@@ -26,30 +44,29 @@ async function loadData() {
     renderSite();
   } catch (err) {
     console.error('Error loading data:', err);
-    // Fallback: try loading from inline data
     loadFallback();
   }
 }
 
-// Fallback for GitHub Pages (some servers need absolute paths)
+// Fallback for GitHub Pages (absolute paths)
 async function loadFallback() {
   try {
     const base = window.location.pathname.includes('/peluditos-al-hogar-bogota/') 
       ? '/peluditos-al-hogar-bogota' 
       : '.';
     const [site, services, products, loyalty, gallery] = await Promise.all([
-      fetch(`${base}/data/site.json`).then(r => r.json()),
-      fetch(`${base}/data/services.json`).then(r => r.json()),
-      fetch(`${base}/data/products.json`).then(r => r.json()),
-      fetch(`${base}/data/loyalty.json`).then(r => r.json()),
-      fetch(`${base}/data/gallery.json`).then(r => r.json())
+      fetch(\`\${base}/data/site.json\`).then(r => r.json()),
+      fetch(\`\${base}/data/services.json\`).then(r => r.json()),
+      fetch(\`\${base}/data/products.json\`).then(r => r.json()),
+      fetch(\`\${base}/data/loyalty.json\`).then(r => r.json()),
+      fetch(\`\${base}/data/gallery.json\`).then(r => r.json())
     ]);
     
     appData = { site, services, products, loyalty, gallery };
     renderSite();
   } catch (err) {
     console.error('Fallback also failed:', err);
-    document.getElementById('app').innerHTML = '<p style="text-align:center;padding:100px 20px;color:var(--gray)">Error cargando el contenido. Intenta recargar la página.</p>';
+    document.getElementById('app').innerHTML = '<p style="text-align:center;padding:100px 20px;color:var(--gray)">Error cargando el contenido. Intenta recargar la página.<br><br>💡 Si abriste esta página desde tu PC, sírvela con un servidor local o actívala en GitHub Pages.</p>';
   }
 }
 

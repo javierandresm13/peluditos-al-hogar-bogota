@@ -184,6 +184,340 @@
     </a>
   </div>
 
+  <!-- Embedded data for local file:// support -->
+  <script>
+  window.__EMBEDDED_DATA = {
+    site: `{
+  "site": {
+    "name": "Pets Love",
+    "tagline": "Cuidamos y queremos a tu mascota 🐾",
+    "description": "Peluquería canina y mascotas a domicilio en Bogotá",
+    "domain": "https://javierandresm13.github.io/peluditos-al-hogar-bogota"
+  },
+  "hero": {
+    "title": "Consentimos a tu peludo 🐕",
+    "subtitle": "Peluquería canina profesional a domicilio en Bogotá",
+    "description": "Amor, cuidado y estilo para tu mejor amigo, sin salir de casa",
+    "cta_text": "Agenda tu visita",
+    "cta_link": "https://wa.me/573194282637"
+  },
+  "about": {
+    "title": "¿Por qué Pets Love?",
+    "subtitle": "Más que una peluquería, una experiencia de amor y cuidado",
+    "description": "En Pets Love entendemos que tu mascota es parte de la familia. Por eso llevamos hasta la puerta de tu hogar un servicio profesional, cariñoso y personalizado. Nos desplazamos a toda Bogotá con todos los implementos necesarios para que tu peludo reciba el mejor trato sin estrés ni traslados.",
+    "highlights": [
+      "🚐 Servicio a domicilio en toda Bogotá",
+      "❤️ Profesionales amantes de los animales",
+      "🛁 Productos hipoalergénicos de calidad",
+      "⭐ Más de 100 mascotas felices"
+    ]
+  },
+  "contact": {
+    "whatsapp": "573194282637",
+    "whatsapp_display": "319 428 2637",
+    "instagram": "",
+    "instagram_display": "@petslovebogota",
+    "email": "javierandresm13@hotmail.es",
+    "city": "Bogotá D.C., Colombia"
+  },
+  "footer": {
+    "copyright": "© 2025 Pets Love Bogotá. Todos los derechos reservados.",
+    "made_with": "Hecho con 💙 para los peludos de Bogotá"
+  }
+}`,
+    services: `{
+  "categories": [
+    {
+      "id": "banos",
+      "name": "Baños y Spa",
+      "icon": "🛁",
+      "items": [
+        {
+          "id": "ban-basic",
+          "name": "Baño Básico",
+          "description": "Baño con shampoo hipoalergénico, secado y cepillado",
+          "price": "$35.000",
+          "image": "",
+          "featured": true
+        },
+        {
+          "id": "ban-spa",
+          "name": "Baño Spa",
+          "description": "Baño con shampoo premium, acondicionador, masaje relajante y perfume",
+          "price": "$55.000",
+          "image": "",
+          "featured": true
+        },
+        {
+          "id": "ban-medi",
+          "name": "Baño Medicado",
+          "description": "Baño con shampoo medicado para pieles sensibles o con alergias",
+          "price": "$45.000",
+          "image": "",
+          "featured": false
+        }
+      ]
+    },
+    {
+      "id": "cortes",
+      "name": "Cortes y Estilo",
+      "icon": "✂️",
+      "items": [
+        {
+          "id": "corte-basic",
+          "name": "Corte Higiénico",
+          "description": "Corte sanitario en patas, cara y zona genital",
+          "price": "$25.000",
+          "image": "",
+          "featured": false
+        },
+        {
+          "id": "corte-full",
+          "name": "Corte Completo",
+          "description": "Corte completo según raza y preferencia del dueño",
+          "price": "$50.000",
+          "image": "",
+          "featured": true
+        },
+        {
+          "id": "corte-raz",
+          "name": "Corte por Raza",
+          "description": "Corte especializado para razas específicas (Poodle, Schnauzer, etc.)",
+          "price": "$60.000",
+          "image": "",
+          "featured": true
+        }
+      ]
+    },
+    {
+      "id": "complementarios",
+      "name": "Servicios Complementarios",
+      "icon": "🐾",
+      "items": [
+        {
+          "id": "unas",
+          "name": "Corte de Uñas",
+          "description": "Corte y limado de uñas con precisión y cuidado",
+          "price": "$15.000",
+          "image": "",
+          "featured": false
+        },
+        {
+          "id": "limpieza",
+          "name": "Limpieza de Oídos",
+          "description": "Limpieza profunda de oídos con productos veterinarios",
+          "price": "$12.000",
+          "image": "",
+          "featured": false
+        },
+        {
+          "id": "cepillado",
+          "name": "Cepillado de Dientes",
+          "description": "Cepillado dental con pasta especial para mascotas",
+          "price": "$10.000",
+          "image": "",
+          "featured": false
+        }
+      ]
+    }
+  ],
+  "zones": [
+    "Chapinero",
+    "Usaquén",
+    "Suba",
+    "Engativá",
+    "Fontibón",
+    "Barrios Unidos",
+    "Teusaquillo",
+    "Kennedy",
+    "Bosa",
+    "Ciudad Bolívar",
+    "San Cristóbal",
+    "Rafael Uribe",
+    "Tunjuelito",
+    "Puente Aranda",
+    "Antonio Nariño",
+    "Los Mártires",
+    "Santa Fe",
+    "Candelaria"
+  ],
+  "notes": "El costo del servicio puede variar según la zona de Bogotá y el tamaño de la mascota. Contáctanos para cotizar tu dirección específica."
+}`,
+    products: `{
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Shampoo Hipoalergénico 250ml",
+      "description": "Shampoo suave para pieles sensibles, pH balanceado para perros y gatos",
+      "price": "$28.000",
+      "category": "shampoos",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "prod-002",
+      "name": "Acondicionador Reparador 250ml",
+      "description": "Acondicionador con keratina y vitaminas para pelo suave y brillante",
+      "price": "$32.000",
+      "category": "shampoos",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "prod-003",
+      "name": "Perfume Canino Fresh 120ml",
+      "description": "Perfume duradero con aroma fresco, libre de alcohol",
+      "price": "$22.000",
+      "category": "fragancias",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-004",
+      "name": "Cepillo Cerdas Suaves",
+      "description": "Cepillo ergonómico con cerdas suaves para cepillado diario",
+      "price": "$18.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "prod-005",
+      "name": "Peine Desenredante Profesional",
+      "description": "Peine de acero inoxidable con giro suave para nudos difíciles",
+      "price": "$25.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-006",
+      "name": "Cortauñas Profesional",
+      "description": "Cortauñas de acero inoxidable con seguro de seguridad",
+      "price": "$20.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-007",
+      "name": "Toalla Microfibra Secado Rápido",
+      "description": "Toalla absorbente de microfibra para secado rápido y cómodo",
+      "price": "$35.000",
+      "category": "accesorios",
+      "image": "",
+      "featured": false
+    },
+    {
+      "id": "prod-008",
+      "name": "Kit Viaje: Shampoo + Acondicionador",
+      "description": "Presentación económica de 100ml cada uno, ideal para viajes",
+      "price": "$38.000",
+      "category": "kits",
+      "image": "",
+      "featured": true
+    }
+  ],
+  "categories": [
+    {"id": "shampoos", "name": "Shampoos y Acondicionadores", "icon": "🧴"},
+    {"id": "fragancias", "name": "Fragancias", "icon": "🌸"},
+    {"id": "accesorios", "name": "Accesorios de Aseo", "icon": "🪥"},
+    {"id": "kits", "name": "Kits y Combos", "icon": "🎁"}
+  ]
+}`,
+    gallery: `{
+  "photos": [
+    {
+      "id": "gallery-001",
+      "title": "Luna después del baño",
+      "description": "Baño Spa completo",
+      "src": "",
+      "featured": true
+    },
+    {
+      "id": "gallery-002",
+      "title": "Max con su nuevo corte",
+      "description": "Corte completo raza Poodle",
+      "src": "",
+      "featured": true
+    },
+    {
+      "id": "gallery-003",
+      "title": "Pelusa relajada",
+      "description": "Baño medicado + masaje",
+      "src": "",
+      "featured": true
+    },
+    {
+      "id": "gallery-004",
+      "title": "Rocky feliz",
+      "description": "Corte higiénico + uñas",
+      "src": "",
+      "featured": false
+    },
+    {
+      "id": "gallery-005",
+      "title": "Nala consentida",
+      "description": "Spa completo + perfume",
+      "src": "",
+      "featured": false
+    },
+    {
+      "id": "gallery-006",
+      "title": "Tobby renovado",
+      "description": "Corte por raza Schnauzer",
+      "src": "",
+      "featured": false
+    }
+  ]
+}`,
+    loyalty: `{
+  "plans": [
+    {
+      "id": "plan-bronze",
+      "name": "Plan Bronce",
+      "icon": "🥉",
+      "description": "¡Acumula puntos y obtén descuentos!",
+      "benefits": [
+        "Acumula 1 punto por cada $10.000 gastados",
+        "10% de descuento al acumular 10 puntos",
+        "Descuento en tu servicio favorito"
+      ],
+      "color": "#cd7f32"
+    },
+    {
+      "id": "plan-silver",
+      "name": "Plan Plata",
+      "icon": "🥈",
+      "description": "Para clientes frecuentes que aman consentir a su peludo",
+      "benefits": [
+        "15% de descuento en todos los servicios",
+        "Prioridad en agenda de citas",
+        "Baño Spa gratis cada 5 servicios",
+        "Descuento en productos de aseo"
+      ],
+      "color": "#a8a8a8"
+    },
+    {
+      "id": "plan-gold",
+      "name": "Plan Dorado",
+      "icon": "🥇",
+      "description": "El plan premium para los que miman a su mascota como se merece",
+      "benefits": [
+        "20% de descuento en todos los servicios",
+        "Prioridad máxima en agenda",
+        "Baño Spa gratis cada 3 servicios",
+        "15% de descuento en productos",
+        "Corte de uñas gratis ilimitado",
+        "Regalo sorpresa en el cumpleaños de tu mascota"
+      ],
+      "color": "#ffd700"
+    }
+  ],
+  "note": "Pregunta por nuestros planes al agendar tu primera visita. ¡Tener contento a tu peludo nunca fue tan fácil!"
+}`
+  };
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
